@@ -1,0 +1,367 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIÁVEIS DE COR */
+:root {
+    --bg-color: #faf9f7;
+    --primary: #9b73d3;
+    --text-dark: #2c2c2c;
+    --text-light: #6b6b6b;
+    --white: #ffffff;
+}
+
+/* BODY */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+@font-face {
+    font-family: Lovely;
+    src: url('../fonts/lovely_valentine_script/Lovely-Valentine-Script.ttf');
+}
+
+@font-face {
+    font-family: Lovely2;
+    src: url('../fonts/lovely_valentine_script/Lovely-Valentine-Sans.ttf');
+}
+
+/* HERO */
+.hero {
+    height: 60vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.35)
+    ),
+    url('../img/header.png') center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: 'Lovely','Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #eaeaea;
+    font-size: 1.1rem;
+}
+
+/* INTRO */
+.intro {
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.intro h2 {
+    font-family: 'Lovely','Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+/* PRESENTES */
+.gifts {
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.gift-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.gift-card img {
+    width: 280px;
+    height: 280px;
+    margin: 20px;
+}
+
+.gift-card h3 {
+    font-family: 'Lovely2','Playfair Display', serif;
+    font-size: 1.3rem;
+    margin: 20px;
+}
+
+.price {
+    display: block;
+    margin: 15px 20px;
+    font-weight: 500;
+    color: #56AD55;
+}
+
+.gift-card button {
+    margin: 0 20px 25px;
+    padding: 12px;
+    width: calc(100% - 40px);
+    border: none;
+    border-radius: 30px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.gift-card button:hover {
+    background: #854fd1;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #f1eee9;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ==============================
+   MODAL PRESENTE
+   ============================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 16px;
+    max-width: 420px;
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.modal-content img {
+    width: 30%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    font-family: 'Lovely2', 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.modal-price {
+    color: #56AD55;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.pix-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pix-section img {
+    width: 180px;
+    margin: 0 auto;
+}
+
+.pix-copy {
+    display: flex;
+    gap: 10px;
+}
+
+.pix-copy input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.85rem;
+}
+
+.pix-copy button {
+    background: var(--primary);
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+
+/* PROGRESS BAR */
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #2ecc71;
+    transition: width 0.4s ease;
+}
+
+
+.gift-btn.disabled {
+    background: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.gift-card.disabled {
+    opacity: 0.6;
+}
+
+#simulateSale {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+#resetTestes {
+    margin: 30px auto;
+    display: block;
+    padding: 10px 20px;
+    background: #c0392b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+/* ==============================
+   AJUSTES MOBILE - REFINO FINAL
+   ============================== */
+
+@media (max-width: 768px) {
+
+    /* HERO */
+    .hero {
+        height: 45vh;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* INTRO */
+    .intro {
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+
+    .intro h2 {
+        font-size: 1.8rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    /* LISTA DE PRESENTES */
+    .gifts {
+        gap: 20px;
+    }
+
+    .gift-card {
+        border-radius: 14px;
+    }
+
+    .gift-card img {
+        width: 250px;
+        height: 250px;
+         margin: 15px auto;
+        display: block;
+    }
+
+    .gift-card h3 {
+        font-size: 1.2rem;
+        margin: 16px;
+    }
+
+    .price {
+        margin: 12px 16px;
+        font-size: 1rem;
+    }
+
+    .gift-card button {
+        margin: 0 16px 20px;
+        padding: 14px;
+        font-size: 1rem;
+        border-radius: 32px;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 25px 15px;
+        font-size: 0.85rem;
+    }
+}
